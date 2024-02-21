@@ -1,0 +1,93 @@
+
+Date:
+    date() -> date function
+    Y = 2023 , y = 23 (year)
+    m = 1-12 (month)
+    d = 1-31 (date)
+    l = (day name)
+    H = 0-23, h = 1-12 (hour)
+    i = 0-59 (minutes)
+    s = 0-59 (second)
+    a = am/pm, A = AM/PM
+
+
+DataBase: class_free
+    
+    table: user
+        create table engineers 
+        (userName varchar(100) NOT NULL,
+        email varchar(100) PRIMARY KEY,
+        password varchar(255) );
+
+
+    table: SJT
+        create table SJT
+        ( classno varchar(8) NOT NULL, 
+        day varchar(15) NOT NULL, 
+        fromtime varchar(10) NOT NULL, 
+        totime varchar(10) NOT NULL,
+        classid int primary key auto_increment );
+
+    table: TT
+        create table TT
+        ( classno varchar(8) NOT NULL, 
+        day varchar(15) NOT NULL, 
+        fromtime varchar(10) NOT NULL, 
+        totime varchar(10) NOT NULL,
+        classid int primary key auto_increment );
+    
+    table: PRP
+        create table PRP
+        ( classno varchar(8) NOT NULL, 
+        day varchar(15) NOT NULL, 
+        fromtime varchar(10) NOT NULL, 
+        totime varchar(10) NOT NULL,
+        classid int primary key auto_increment );
+
+    table: SMV
+        create table SMV
+        ( classno varchar(8) NOT NULL, 
+        day varchar(15) NOT NULL, 
+        fromtime varchar(10) NOT NULL, 
+        totime varchar(10) NOT NULL,
+        classid int primary key auto_increment );
+
+
+
+
+
+
+
+
+
+
+
+var fromTimeSelect = document.getElementById("from");
+var toTimeSelect = document.getElementById("to");
+
+fromTimeSelect.addEventListener("change", function() {
+  var selectedFromTime = fromTimeSelect.value;
+  
+  // Clear existing options
+  toTimeSelect.innerHTML = "";
+  
+  // Add new options based on the selected From Time
+  if (selectedFromTime === "8:00 AM") {
+    addOption(toTimeSelect, "9:00 AM");
+    addOption(toTimeSelect, "10:00 AM");
+    addOption(toTimeSelect, "11:00 AM");
+    // Add more options as needed
+  } else if (selectedFromTime === "9:00 AM") {
+    addOption(toTimeSelect, "10:00 AM");
+    addOption(toTimeSelect, "11:00 AM");
+    addOption(toTimeSelect, "12:00 PM");
+    // Add more options as needed
+  }
+  
+  // Function to add option to select element
+  function addOption(selectElement, optionText) {
+    var option = document.createElement("option");
+    option.text = optionText;
+    selectElement.add(option);
+  }
+});
